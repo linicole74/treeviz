@@ -34,9 +34,8 @@ function SimplifyText(rawText: string) {
 function BuildTree(course: string) {
   const text = SimplifyText(courses.get(course));
   let nodes = [];
+  let edges: { id: string; source: string; target: string; }[] = [];
   let pos = 0;
-  let edges = [];
-  let edgeCount = 0;
   let treeComponents = text.split(' ');
   let level = 0;
   let root = [];
@@ -92,7 +91,7 @@ function BuildTree(course: string) {
     } else if (treeComponents[i] == ')') {
       if (root[root.length - 1] != '') {
         for (let i = 0; i < components[components.length - 1].length; i++) {
-          edges.push({id: 'e' + edgeCount, source: components[components.length - 1][i], target: root[root.length - 1]});
+          edges.push({id: 'e' + Math.random().toString(16).slice(2), source: components[components.length - 1][i], target: root[root.length - 1]});
         }
         components.pop();
         components[components.length - 1].push(root[root.length - 1]);
@@ -103,17 +102,16 @@ function BuildTree(course: string) {
       level -= 1;
     }
   }
-  nodes.push({id: course, position: {x: bottommostTreeNodePos * horizontalGapSize, y: (maxLevel + 1) * verticalGapSize}, data: {label: "to take " + course}});
-  edges.push({id: 'e' + edgeCount, source: bottommostTreeNode, target: nodes[nodes.length - 1].id});
+  nodes.push({id: course, position: {x: bottommostTreeNodePos * horizontalGapSize, y: (maxLevel + 1) * verticalGapSize}, data: {label: (edges.length ? "" : "no prerequisites ") + "to take " + course}});
+  edges.push({id: 'e' + Math.random().toString(16).slice(2), source: bottommostTreeNode, target: nodes[nodes.length - 1].id});
   return [nodes, edges];
 }
 
-export default function Tree1() {
+export default function Tree1(props: { course: string, setSearchCount: any }) {
   return (
     <div>
-      <div>{courses.get("PHYS 3122")}</div>
-      <div style={{ width: '100vw', height: '100vh' }}>
-        <ReactFlow nodes={BuildTree("PHYS 3122")[0]} edges={BuildTree("PHYS 3122")[1]} />
+      <div style={{ width: '75vw', height: '50vh' }}>
+        <ReactFlow nodes={BuildTree(props.course)[0]} edges={BuildTree(props.course)[1]} />
       </div>
     </div>
   );

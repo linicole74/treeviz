@@ -36,7 +36,6 @@ function BuildTree(course: string) {
   let nodes = [];
   let pos = 0;
   let edges = [];
-  let edgeCount = 0;
   let treeComponents = text.split(' ');
   let level = 0;
   let root = [];
@@ -106,7 +105,7 @@ function BuildTree(course: string) {
         for (let i = 0; i < components[components.length - 1].length; i++) {
           let labelText = root[root.length - 1].replace(/[^a-zA-Z]+/g, '');
           edges.push({
-            id: 'e' + edgeCount,
+            id: 'e' + Math.random().toString(16).slice(2),
             source: components[components.length - 1][i],
             target: root[root.length - 1],
             label: labelText == 'and' || labelText == 'or' ? labelText : ''
@@ -122,16 +121,15 @@ function BuildTree(course: string) {
     }
   }
   nodes.push({id: course, position: {x: bottommostTreeNodePos * horizontalGapSize, y: (maxLevel + 1) * verticalGapSize}, data: {label: course}});
-  edges.push({id: 'e' + edgeCount, source: bottommostTreeNode, target: nodes[nodes.length - 1].id, label: 'to take'});
+  edges.push({id: 'e' + Math.random().toString(16).slice(2), source: bottommostTreeNode, target: nodes[nodes.length - 1].id, label: 'to take'});
   return [nodes, edges];
 }
 
-export default function Tree2() {
+export default function Tree2(props: { course: string, setSearchCount: any }) {
   return (
     <div>
-      <div>{courses.get("PHYS 3122")}</div>
-      <div style={{ width: '100vw', height: '100vh' }}>
-        <ReactFlow nodes={BuildTree("PHYS 3122")[0]} edges={BuildTree("PHYS 3122")[1]} />
+      <div style={{ width: '75vw', height: '50vh' }}>
+      <ReactFlow nodes={BuildTree(props.course)[0]} edges={BuildTree(props.course)[1]} />
       </div>
     </div>
   );

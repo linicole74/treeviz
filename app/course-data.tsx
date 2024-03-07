@@ -11,3 +11,21 @@ courses.set("MATH 2413", "Undergraduate Semester level MATH 2401 Minimum Grade o
 courses.set("MATH 24X3", "");
 courses.set("PHYS 3211", "Undergraduate Semester level PHYS 2212 Minimum Grade of D or Undergraduate Semester level PHYS 2232 Minimum Grade of D");
 courses.set("PHYS 3143", "(Undergraduate Semester level PHYS 2212 Minimum Grade of D or Undergraduate Semester level PHYS 2232 Minimum Grade of D) and (Undergraduate Semester level MATH 2403 Minimum Grade of D or Undergraduate Semester level MATH 2413 Minimum Grade of D or Undergraduate Semester level MATH 24X3 Minimum Grade of T or Undergraduate Semester level MATH 2552 Minimum Grade of D or Undergraduate Semester level MATH 2562 Minimum Grade of D or Undergraduate Semester level MATH 2X52 Minimum Grade of T)");
+courses.set("PHYS 2211", "Undergraduate Semester level MATH 1502 Minimum Grade of D or Undergraduate Semester level MATH 1512 Minimum Grade of D");
+courses.set("PHYS 2231", "Undergraduate Semester level MATH 1502 Minimum Grade of D or Undergraduate Semester level MATH 1512 Minimum Grade of D");
+courses.set("MATH 1502", "Undergraduate Semester level MATH 1501 Minimum Grade of D or Undergraduate Semester level MATH 1511 Minimum Grade of D or Undergraduate Semester level MATH 15X1 Minimum Grade of D");
+courses.set("MATH 1512", "Undergraduate Semester level MATH 1501 Minimum Grade of B or Undergraduate Semester level MATH 1511 Minimum Grade of B");
+courses.set("MATH 1501", "Undergraduate Semester level MATH 1113 Minimum Grade of D or SAT Mathematics 600 or Converted ACT Math 600");
+courses.set("MATH 1511", "SAT Mathematics 700 or Converted ACT Math 700 or Undergraduate Semester level MATH 1501 Minimum Grade of D");
+courses.set("MATH 15X1", "");
+courses.set("MATH 1113", "");
+courses.set("MATH 15X2", "");
+courses.set("MATH 1522", "Undergraduate Semester level MATH 15X2 Minimum Grade of D");
+courses.set("MATH 2401", "Undergraduate Semester level MATH 1502 Minimum Grade of D or Undergraduate Semester level MATH 1512 Minimum Grade of D or (Undergraduate Semester level MATH 15X2 Minimum Grade of D and Undergraduate Semester level MATH 1522 Minimum Grade of D)");
+courses.set("MATH 2411", "Undergraduate Semester level MATH 1502 Minimum Grade of B or Undergraduate Semester level MATH 1512 Minimum Grade of B");
+courses.set("MATH 2605", "Undergraduate Semester level MATH 1502 Minimum Grade of D or Undergraduate Semester level MATH 1512 Minimum Grade of D or (Undergraduate Semester level MATH 15X2 Minimum Grade of D and Undergraduate Semester level MATH 1522 Minimum Grade of D)");
+courses.set("MATH 2552", "Undergraduate Semester level MATH 1502 Minimum Grade of D or Undergraduate Semester level MATH 1512 Minimum Grade of D or Undergraduate Semester level MATH 1504 Minimum Grade of D or Undergraduate Semester level MATH 1555 Minimum Grade of D or ( (Undergraduate Semester level MATH 1552 Minimum Grade of D or Undergraduate Semester level MATH 15X2 Minimum Grade of T or Undergraduate Semester level MATH 1X52 Minimum Grade of T) and (Undergraduate Semester level MATH 1553 Minimum Grade of D or Undergraduate Semester level MATH 1X54 Minimum Grade of T or Undergraduate Semester level MATH 1554 Minimum Grade of D or Undergraduate Semester level MATH 1564 Minimum Grade of D or Undergraduate Semester level MATH 1522 Minimum Grade of D or Undergraduate Semester level MATH 1X53 Minimum Grade of T) )");
+courses.set("MATH 2562", "Undergraduate Semester level MATH 1502 Minimum Grade of B or Undergraduate Semester level MATH 1512 Minimum Grade of B or Undergraduate Semester level MATH 1504 Minimum Grade of B or Undergraduate Semester level MATH 1555 Minimum Grade of B or ( (Undergraduate Semester level MATH 1552 Minimum Grade of B or Undergraduate Semester level MATH 15X2 Minimum Grade of T or Undergraduate Semester level MATH 1X52 Minimum Grade of T) and (Undergraduate Semester level MATH 1553 Minimum Grade of B or Undergraduate Semester level MATH 1X54 Minimum Grade of T or Undergraduate Semester level MATH 1554 Minimum Grade of B or Undergraduate Semester level MATH 1564 Minimum Grade of B or Undergraduate Semester level MATH 1522 Minimum Grade of B or Undergraduate Semester level MATH 1X53 Minimum Grade of T) )");
+courses.set("MATH 2X52", "");
+
+// PHYS 4321 is broken
