@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Tree1 from "./tree1";
 import Tree2 from "./tree2";
-import { courses } from "./course-data";
+import { IsValidCourse, ParseCourse } from "./course-data";
 
 export default function TreeDisplay() {
   let starterCourse = "PHYS 3122"
@@ -18,8 +18,8 @@ export default function TreeDisplay() {
       }}>back</button>
       
       <input type="text" placeholder="CS 4261" onChange={e => {
-        let courseInput = e.currentTarget.value.toUpperCase();
-        if (courses.has(courseInput)) {
+        let courseInput = ParseCourse(e.currentTarget.value);
+        if (IsValidCourse(courseInput)) {
           setSearchCount(currSearchCount => currSearchCount + 1);
           setCourse(courseInput);
           setCourseHistory(currCourseHistory => (currCourseHistory[currCourseHistory.length - 1] != courseInput ? [...currCourseHistory, courseInput] : currCourseHistory));
@@ -27,8 +27,8 @@ export default function TreeDisplay() {
       }}></input>
       <div>{course}</div>
       
-      {courses.has(course) && isShowingTree1 && <Tree1 course={course} setSearchCount={setSearchCount}/>}
-      {courses.has(course) && !isShowingTree1 && <Tree2 course={course} setSearchCount={setSearchCount}/>}
+      {IsValidCourse(course) && isShowingTree1 && <Tree1 course={course} setSearchCount={setSearchCount}/>}
+      {IsValidCourse(course) && !isShowingTree1 && <Tree2 course={course} setSearchCount={setSearchCount}/>}
 
       <div>{searchCount}</div>
       <button onClick={() => {setIsShowingTree1(isShowing => !isShowing)}}>Toggle Tree</button>

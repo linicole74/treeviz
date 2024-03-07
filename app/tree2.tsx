@@ -2,37 +2,11 @@ import React from 'react';
 import ReactFlow from 'reactflow';
  
 import 'reactflow/dist/style.css';
-import { coursePrefixes, courses } from './course-data';
-
-function SimplifyText(rawText: string) {
-  let simplifiedText = '';
-  let finishedText = rawText.split(" ");
-  for (let i = 0; i < finishedText.length; i++) {
-    if (finishedText[i] == 'and' || finishedText[i] == 'or') {
-      simplifiedText += finishedText[i] + ' ';
-    } else {
-      while (finishedText[i].length != 0 && finishedText[i][0] == '(') {
-        simplifiedText += '( ';
-        finishedText[i] = finishedText[i].slice(1);
-      }
-      if (coursePrefixes.includes(finishedText[i]) && i != finishedText.length - 1 && new RegExp("[X,0,1,2,3,4,5,6,7,8,9,)]+$").test(finishedText[i + 1])) {
-        simplifiedText += finishedText[i] + '_' + finishedText[i + 1].replace(')','') + ' ';
-        for (let j = 0; j < (finishedText[i].match(/\)/g) || []).length; j++) {
-          simplifiedText += ') ';
-        }
-        finishedText[i + 1] = '';
-      } else {
-        for (let j = 0; j < (finishedText[i].match(/\)/g) || []).length; j++) {
-          simplifiedText += ') ';
-        }
-      }
-    }
-  }
-  return '( ' + simplifiedText + ')';
-}
+import { GetPrereqTextForCourse, ParseCourse } from './course-data';
 
 function BuildTree(course: string) {
-  const text = SimplifyText(courses.get(course));
+  course = ParseCourse(course);
+  const text = GetPrereqTextForCourse(course);
   let nodes = [];
   let pos = 0;
   let edges = [];
