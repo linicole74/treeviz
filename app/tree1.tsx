@@ -102,8 +102,12 @@ function BuildTree(course: string) {
       level -= 1;
     }
   }
-  nodes.push({id: course, position: {x: bottommostTreeNodePos * horizontalGapSize, y: (maxLevel + 1) * verticalGapSize}, data: {label: (edges.length ? "" : "no prerequisites ") + "to take " + course}});
-  edges.push({id: 'e' + Math.random().toString(16).slice(2), source: bottommostTreeNode, target: nodes[nodes.length - 1].id});
+  nodes.push({id: course, position: {x: bottommostTreeNodePos * horizontalGapSize, y: (maxLevel + 1) * verticalGapSize}, data: {label: (nodes.length ? "" : "no prerequisites ") + "to take " + course}});
+  if (nodes.length == 2) {
+    edges.push({id: 'e' + Math.random().toString(16).slice(2), source: nodes[0].id, target: nodes[1].id});
+  } else {
+    edges.push({id: 'e' + Math.random().toString(16).slice(2), source: bottommostTreeNode, target: nodes[nodes.length - 1].id});
+  }
   return [nodes, edges];
 }
 
@@ -111,7 +115,10 @@ export default function Tree1(props: { course: string, setSearchCount: any }) {
   return (
     <div>
       <div style={{ width: '75vw', height: '50vh' }}>
-        <ReactFlow nodes={BuildTree(props.course)[0]} edges={BuildTree(props.course)[1]} />
+        <ReactFlow
+          nodes={BuildTree(props.course)[0]}
+          edges={BuildTree(props.course)[1]}
+        />
       </div>
     </div>
   );

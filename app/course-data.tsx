@@ -28,4 +28,4 @@ courses.set("MATH 2552", "Undergraduate Semester level MATH 1502 Minimum Grade o
 courses.set("MATH 2562", "Undergraduate Semester level MATH 1502 Minimum Grade of B or Undergraduate Semester level MATH 1512 Minimum Grade of B or Undergraduate Semester level MATH 1504 Minimum Grade of B or Undergraduate Semester level MATH 1555 Minimum Grade of B or ( (Undergraduate Semester level MATH 1552 Minimum Grade of B or Undergraduate Semester level MATH 15X2 Minimum Grade of T or Undergraduate Semester level MATH 1X52 Minimum Grade of T) and (Undergraduate Semester level MATH 1553 Minimum Grade of B or Undergraduate Semester level MATH 1X54 Minimum Grade of T or Undergraduate Semester level MATH 1554 Minimum Grade of B or Undergraduate Semester level MATH 1564 Minimum Grade of B or Undergraduate Semester level MATH 1522 Minimum Grade of B or Undergraduate Semester level MATH 1X53 Minimum Grade of T) )");
 courses.set("MATH 2X52", "");
 
-// PHYS 4321 is broken
+// TODO: prereqs of prereqs of last four courses
