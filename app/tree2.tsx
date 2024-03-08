@@ -9,7 +9,7 @@ function BuildTree(course: string) {
   const text = GetPrereqTextForCourse(course);
   let nodes = [];
   let pos = 0;
-  let edges = [];
+  let edges: any[] = [];
   let treeComponents = text.split(' ');
   let level = 0;
   let root = [];

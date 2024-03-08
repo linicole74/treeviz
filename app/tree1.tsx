@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactFlow from 'reactflow';
  
 import 'reactflow/dist/style.css';
-import { GetPrereqTextForCourse, ParseCourse } from './course-data';
+import { GetPrereqTextForCourse, ParseCourse, getPreReqs} from './course-data';
 
 function BuildTree(course: string) {
   course = ParseCourse(course);
   const text = GetPrereqTextForCourse(course);
   let nodes = [];
-  let edges: { id: string; source: string; target: string; }[] = [];
+  let edges: any[] = [];
   let pos = 0;
   let treeComponents = text.split(' ');
   let level = 0;
@@ -82,6 +82,7 @@ function BuildTree(course: string) {
   } else {
     edges.push({id: 'e' + Math.random().toString(16).slice(2), source: bottommostTreeNode, target: nodes[nodes.length - 1].id});
   }
+
   return [nodes, edges];
 }
 
