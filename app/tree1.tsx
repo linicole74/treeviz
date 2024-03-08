@@ -32,27 +32,27 @@ function BuildTree(course: string) {
       level += 1;
       root.push('');
       components.push([]);
-    } else if (treeComponents[i] == 'or') {
+    } else if (treeComponents[i] == 'OR') {
       if (root[root.length - 1] == '') {
-        root[root.length - 1] = 'or' + orCount;
+        root[root.length - 1] = 'OR' + orCount;
         nodes.push({
-          id: 'or' + orCount,
+          id: 'OR' + orCount,
           position: {x: pos * horizontalGapSize, y: (maxLevel - level + 1) * verticalGapSize},
-          data: {label: 'or'},
+          data: {label: 'OR'},
         });
         if (level == 1) {
-          bottommostTreeNode = 'or' + orCount;
+          bottommostTreeNode = 'OR' + orCount;
           bottommostTreeNodePos = pos;
         }
         pos += 1;
         orCount++;
       }
-    } else if (treeComponents[i] == 'and') {
+    } else if (treeComponents[i] == 'AND') {
       if (root[root.length - 1] == '') {
-        root[root.length - 1] = 'and' + andCount;
-        nodes.push({id: 'and' + andCount, position: {x: pos * horizontalGapSize, y: (maxLevel - level + 1) * verticalGapSize}, data: {label: 'and'}});
+        root[root.length - 1] = 'AND' + andCount;
+        nodes.push({id: 'AND' + andCount, position: {x: pos * horizontalGapSize, y: (maxLevel - level + 1) * verticalGapSize}, data: {label: 'AND'}});
         if (level == 1) {
-          bottommostTreeNode = 'and' + andCount;
+          bottommostTreeNode = 'AND' + andCount;
           bottommostTreeNodePos = pos;
         }
         pos += 1;

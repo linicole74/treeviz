@@ -63,7 +63,7 @@ export function GetPrereqTextForCourse(course: string) {
   let simplifiedText = '';
   let finishedText = courses.get(ParseCourse(course)).split(" ");
   for (let i = 0; i < finishedText.length; i++) {
-    if (finishedText[i] == 'and' || finishedText[i] == 'or') {
+    if (finishedText[i] == 'AND' || finishedText[i] == 'OR') {
       simplifiedText += finishedText[i] + ' ';
     } else {
       while (finishedText[i].length != 0 && finishedText[i][0] == '(') {

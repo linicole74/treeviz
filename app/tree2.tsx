@@ -32,11 +32,11 @@ function BuildTree(course: string) {
       level += 1;
       root.push('');
       components.push([]);
-    } else if (treeComponents[i] == 'or') {
+    } else if (treeComponents[i] == 'OR') {
       if (root[root.length - 1] == '') {
-        root[root.length - 1] = 'or' + orCount;
+        root[root.length - 1] = 'OR' + orCount;
         nodes.push({
-          id: 'or' + orCount,
+          id: 'OR' + orCount,
           position: {x: pos * horizontalGapSize, y: (maxLevel - level + 1) * verticalGapSize},
           style: {
             width: '0',
@@ -45,17 +45,17 @@ function BuildTree(course: string) {
           }
         });
         if (level == 1) {
-          bottommostTreeNode = 'or' + orCount;
+          bottommostTreeNode = 'OR' + orCount;
           bottommostTreeNodePos = pos;
         }
         pos += 1;
         orCount++;
       }
-    } else if (treeComponents[i] == 'and') {
+    } else if (treeComponents[i] == 'AND') {
       if (root[root.length - 1] == '') {
-        root[root.length - 1] = 'and' + andCount;
+        root[root.length - 1] = 'AND' + andCount;
         nodes.push({
-          id: 'and' + andCount,
+          id: 'AND' + andCount,
           position: {x: pos * horizontalGapSize, y: (maxLevel - level + 1) * verticalGapSize},
           style: {
             width: '0',
@@ -64,7 +64,7 @@ function BuildTree(course: string) {
           }
         });
         if (level == 1) {
-          bottommostTreeNode = 'and' + andCount;
+          bottommostTreeNode = 'AND' + andCount;
           bottommostTreeNodePos = pos;
         }
         pos += 1;
@@ -82,7 +82,7 @@ function BuildTree(course: string) {
             id: 'e' + Math.random().toString(16).slice(2),
             source: components[components.length - 1][i],
             target: root[root.length - 1],
-            label: labelText == 'and' || labelText == 'or' ? labelText : ''
+            label: labelText == 'AND' || labelText == 'OR' ? labelText : ''
           });
         }
         components.pop();
