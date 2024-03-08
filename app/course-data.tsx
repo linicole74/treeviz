@@ -100,6 +100,8 @@ courses.set("CHEM 1211K", "");
 courses.set("CHEM 1212K", "Undergraduate Semester level CHEM 1211K Minimum Grade of D or Undergraduate Semester level CHEM 1310 Minimum Grade of D");
 courses.set("CHEM 2311", "Undergraduate Semester level CHEM 1311 Minimum Grade of D or Undergraduate Semester level CHEM 1212K Minimum Grade of D");
 courses.set("CHEM 1311", "Undergraduate Semester level CHEM 1310 Minimum Grade of D");
+courses.set("CS 1301", "");
+courses.set("CS 1331", "Undergraduate Semester level CS 1301 Minimum Grade of C or Undergraduate Semester level CS 1315 Minimum Grade of C or Undergraduate Semester level CS 1321 Minimum Grade of C or Undergraduate Semester level CS 1371 Minimum Grade of C");
 
 /*
 TODO: course numbers with letters like 1211K will mess it up
