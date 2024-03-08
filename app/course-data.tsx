@@ -1,3 +1,28 @@
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
+
+const firebaseConfig = {
+    apiKey: "AIzaSyB9_gnWKRWeYmND9tRzO7j3xK9Reg8-NpQ",
+    authDomain: "tree-app-1f060.firebaseapp.com",
+    databaseURL: "https://tree-app-1f060-default-rtdb.firebaseio.com",
+    projectId: "tree-app-1f060",
+    storageBucket: "tree-app-1f060.appspot.com",
+    messagingSenderId: "702893689283",
+    appId: "1:702893689283:web:346fb553cb403702c21576"
+  };  
+
+const app = initializeApp(firebaseConfig);
+const firestore = getFirestore(app)
+
+export const getPreReqs = async () => {
+    const col = await getDocs(collection(firestore, "prereqs"));
+    const courses:any = []
+    courses.forEach((course:any) => {
+        courses.push({identifier: course.identifier, prereqs: course.prerequisites})
+    })
+    return courses
+};
+
 const coursePrefixes = "ACCT AE AS APPH ASE ARBC ARCH BIOS BIOL BMEJ BMED BMEM BC BCP CETL CHBE CHEM CHIN CP CEE COA COE COS CX CSE CS COOP UCGA EAS ECON ECEP ECE ENGL FC FREE FREN GT GTL GRMN HS HEBW HIN HIST HTS HUM ID ISYE INTA IL INTN IMBA IAC JAPN KOR LATN LS LING LMC MGT MOT MLDR MSE MATH ME MP MSL ML MUSI NS NEUR NRE PERS PHIL PHYS POL PTFE PORT DOPP PSYC PUBJ PUBP RUSS SCI SLS SS SOC SPAN SWAH VIP WOLO".split(" ");
 
 export function ParseCourse(rawCourse: string) {
@@ -37,6 +62,8 @@ export function IsValidCourse(course: string) {
 }
 
 const courses = new Map();
+const prereqs = getPreReqs()
+console.log(prereqs)
 courses.set("PHYS 3122", "(Undergraduate Semester level PHYS 2212 Minimum Grade of D or Undergraduate Semester level PHYS 2232 Minimum Grade of D) and (Undergraduate Semester level MATH 2403 Minimum Grade of D or Undergraduate Semester level MATH 2413 Minimum Grade of D or Undergraduate Semester level MATH 24X3 Minimum Grade of D)");
 courses.set("PHYS 4206", "Undergraduate Semester level PHYS 3211 Minimum Grade of D");
 courses.set("PHYS 4321", "Undergraduate Semester level PHYS 3143 Minimum Grade of D");
